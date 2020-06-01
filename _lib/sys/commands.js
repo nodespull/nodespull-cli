@@ -8,6 +8,7 @@ exports.sys_commands = {
     help: "help",
     init: "init",
     run: "run",
+    stop: "stop",
     //ui: "ui",
     test: "test",
     //database: "database", db:"database",

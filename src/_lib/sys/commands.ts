@@ -7,6 +7,7 @@ export const sys_commands: {[index:string]: string} = {
     help: "help",
     init: "init",
     run: "run",
+    stop: "stop",
     //ui: "ui",
     test: "test",
     //database: "database", db:"database",
