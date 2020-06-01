@@ -1,6 +1,6 @@
 {
   "name": "@nodespull/pull",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "nodespull process manager",
   "bin": {
     "pull": "./_bin/index.js"
