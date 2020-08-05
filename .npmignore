@@ -3,3 +3,5 @@ src/
 tsconfig.json
 node_modules
 node_modules/
+.developer-info
+.developer-info/
