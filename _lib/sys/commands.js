@@ -13,7 +13,7 @@ exports.sys_commands = {
     test: "test",
     //database: "database", db:"database",
     i: "cli", interactive: "cli",
-    //migrate: "migrate",
+    migration: "migration",
     deploy: "deploy",
     status: "status",
     update: "update"

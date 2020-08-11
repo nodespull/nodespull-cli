@@ -4,6 +4,7 @@ import getAppRootfileTempalte from "./templates/loaders/appRoot"
 import getPackageJsonTemplate from "./templates/loaders/package.json"
 import getTestEnvTemplate from "./templates/loaders/testEnv"
 import getTestConfigTemplate from "./templates/loaders/testConfig"
+import getSysEnvTemplate from "./templates/loaders/sysEnv"
 
 import { cpus } from "os"
 
@@ -52,22 +53,26 @@ catch (err) {
 
 
 function builde2eDir(){
-    cmd("mkdir", ["-p", "e2e/environment"])
-    cmd("touch",["e2e/environment/test.local.env.js"])
-    cmd("touch",["e2e/environment/test.prod.env.js"])
-    fs.writeFileSync("./e2e/environment/test.local.env.js",getTestEnvTemplate("local"))
-    fs.writeFileSync("./e2e/environment/test.local.env.js",getTestEnvTemplate("production"))
-    cmd("mkdir", ["-p", "e2e/resources/reports"])
-    cmd("mkdir", ["-p", "e2e/resources/utils"])
-    cmd("mkdir", ["-p", "e2e/spec"])
-    cmd("mkdir", ["-p", "e2e/validation/common"])
-    cmd("touch", ["e2e/config.json"])
-    fs.writeFileSync("./e2e/config.json",getTestConfigTemplate())
+    cmd("touch",["e2e/readme.md"])
+    fs.writeFileSync("./e2e/readme.md","Note: nodespull@v1 entrusts developers to set e2e testing, though a future version will include native management.")
+
+    // cmd("mkdir", ["-p", "e2e/environment"])
+    // cmd("touch",["e2e/environment/test.local.env.js"])
+    // cmd("touch",["e2e/environment/test.prod.env.js"])
+    // fs.writeFileSync("./e2e/environment/test.local.env.js",getTestEnvTemplate("local"))
+    // fs.writeFileSync("./e2e/environment/test.local.env.js",getTestEnvTemplate("production"))
+    // cmd("mkdir", ["-p", "e2e/resources/reports"])
+    // cmd("mkdir", ["-p", "e2e/resources/utils"])
+    // cmd("mkdir", ["-p", "e2e/spec"])
+    // cmd("mkdir", ["-p", "e2e/validation/common"])
+    // cmd("touch", ["e2e/config.json"])
+    // fs.writeFileSync("./e2e/config.json",getTestConfigTemplate())
 }
 
 function buildConfigDir(){
     cmd("mkdir", ["-p", "config"])
-    cmd("touch",["./config/secrets.local.env"])
-    cmd("touch",["./config/secrets.test.env"])
-    cmd("touch",["./config/readme.md"])
+    cmd("touch",["./config/sys.local.env"])
+    cmd("touch",["./config/sys.prod.env"])
+    fs.writeFileSync("./config/sys.local.env",getSysEnvTemplate())
+    fs.writeFileSync("./config/sys.prod.env",getSysEnvTemplate("--prod"))
 }

@@ -12,7 +12,7 @@ export const sys_commands: {[index:string]: string} = {
     test: "test",
     //database: "database", db:"database",
     i: "cli", interactive:"cli",
-    //migrate: "migrate",
+    migration: "migration",
     deploy: "deploy",
     status: "status",
     update: "update"
