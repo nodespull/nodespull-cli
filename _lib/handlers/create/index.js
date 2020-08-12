@@ -29,7 +29,8 @@ cmd_1.default("touch", [projectName + "/src/server.js"]);
 fs_1.default.writeFileSync(projectName + "/src/server.js", appRoot_1.default(projectName));
 // cmd("cp", [__dirname+"/templates/template.appRoot.js", projectName+"/src/server.js" ])
 //install dependencies
-cmd_1.default("npm", ["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/attempt/nodespull.js"]);
+cmd_1.default("npm", ["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/nodespull.js"]);
+console.log("(setup for npm 'nodemon', 'mocha', and 'heroku' require admin level access)");
 cmd_1.default("sudo", ["npm", "install", "-g", "--force", "--silent", "nodemon"], false);
 cmd_1.default("sudo", ["npm", "install", "-g", "--force", "--silent", "mocha"], false);
 cmd_1.default("sudo", ["npm", "install", "-g", "--force", "--silent", "heroku"], false);

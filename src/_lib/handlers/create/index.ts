@@ -2,8 +2,6 @@ import cmd from "../../sys/etc/cmd"
 import fs from "fs"
 import getAppRootfileTempalte from "./templates/loaders/appRoot"
 import getPackageJsonTemplate from "./templates/loaders/package.json"
-import getTestEnvTemplate from "./templates/loaders/testEnv"
-import getTestConfigTemplate from "./templates/loaders/testConfig"
 import getSysEnvTemplate from "./templates/loaders/sysEnv"
 
 import { cpus } from "os"
@@ -32,7 +30,8 @@ fs.writeFileSync( projectName+"/src/server.js", getAppRootfileTempalte(projectNa
 // cmd("cp", [__dirname+"/templates/template.appRoot.js", projectName+"/src/server.js" ])
 
 //install dependencies
-cmd("npm",["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/attempt/nodespull.js"])
+cmd("npm",["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/nodespull.js"])
+console.log("(setup for npm 'nodemon', 'mocha', and 'heroku' require admin level access)")
 cmd("sudo",["npm","install","-g", "--force", "--silent" , "nodemon"], false)
 cmd("sudo",["npm","install","-g", "--force", "--silent" , "mocha"], false)
 cmd("sudo",["npm","install","-g", "--force", "--silent", "heroku"], false)

@@ -13,8 +13,6 @@ function getpackageJson(projectName) {
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@nodespull/core": "^1.0",
-        "@nodespull/cli": "^1.0"
     }
 }      
 `;
