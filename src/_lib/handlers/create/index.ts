@@ -32,8 +32,9 @@ fs.writeFileSync( projectName+"/src/server.js", getAppRootfileTempalte(projectNa
 // cmd("cp", [__dirname+"/templates/template.appRoot.js", projectName+"/src/server.js" ])
 
 //install dependencies
-cmd("npm",["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/nodespull"])
+cmd("npm",["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/attempt/nodespull.js"])
 cmd("sudo",["npm","install","-g", "--force", "--silent" , "nodemon"], false)
+cmd("sudo",["npm","install","-g", "--force", "--silent" , "mocha"], false)
 cmd("sudo",["npm","install","-g", "--force", "--silent", "heroku"], false)
 //cmd("curl", ["https://cli-assets.heroku.com/install.sh", "|", "sh"])
 
@@ -53,6 +54,7 @@ catch (err) {
 
 
 function builde2eDir(){
+    cmd("mkdir",["-p","e2e/"])
     cmd("touch",["e2e/readme.md"])
     fs.writeFileSync("./e2e/readme.md","Note: nodespull@v1 entrusts developers to set e2e testing, though a future version will include native management.")
 

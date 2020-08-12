@@ -29,8 +29,9 @@ cmd_1.default("touch", [projectName + "/src/server.js"]);
 fs_1.default.writeFileSync(projectName + "/src/server.js", appRoot_1.default(projectName));
 // cmd("cp", [__dirname+"/templates/template.appRoot.js", projectName+"/src/server.js" ])
 //install dependencies
-cmd_1.default("npm", ["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/nodespull"]);
+cmd_1.default("npm", ["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/attempt/nodespull.js"]);
 cmd_1.default("sudo", ["npm", "install", "-g", "--force", "--silent", "nodemon"], false);
+cmd_1.default("sudo", ["npm", "install", "-g", "--force", "--silent", "mocha"], false);
 cmd_1.default("sudo", ["npm", "install", "-g", "--force", "--silent", "heroku"], false);
 //cmd("curl", ["https://cli-assets.heroku.com/install.sh", "|", "sh"])
 //change process's directory
@@ -46,6 +47,7 @@ catch (err) {
     console.log('chdir: ' + err);
 }
 function builde2eDir() {
+    cmd_1.default("mkdir", ["-p", "e2e/"]);
     cmd_1.default("touch", ["e2e/readme.md"]);
     fs_1.default.writeFileSync("./e2e/readme.md", "Note: nodespull@v1 entrusts developers to set e2e testing, though a future version will include native management.");
     // cmd("mkdir", ["-p", "e2e/environment"])

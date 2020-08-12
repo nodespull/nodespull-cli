@@ -2,6 +2,6 @@
 import cmd from "../../sys/etc/cmd"
 
 
-cmd("nodemon",["index.js","test"])
+cmd("node",["src/server.js","test"])
 
 

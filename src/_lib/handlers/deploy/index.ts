@@ -1,4 +1,4 @@
 import cmd from "../../sys/etc/cmd"
 
 
-cmd("node", ["index.js", "deploy"])
+cmd("node", ["src/server.js", "deploy", process.argv[3]])
