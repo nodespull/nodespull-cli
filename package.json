@@ -6,7 +6,9 @@
     "pull": "./_bin/index.js"
   },
   "scripts": {},
-  "keywords": ["nodespull"],
+  "keywords": [
+    "nodespull"
+  ],
   "author": "Isaac Kabuika",
   "license": "MIT",
   "preferGlobal": true,
