@@ -3,17 +3,13 @@
 
 export const sys_commands: {[index:string]: string} = {
     // nodespull level
-    v:"version","-v":"version",version:"version",
+    version:"version",
     help: "help",
     create: "create",
     serve: "serve",
-    stop: "stop",
-    //ui: "ui",
     test: "test",
-    //database: "database", db:"database",
     i: "cli", interactive:"cli",
-    migration: "migration",
+    migrate: "migration",
     deploy: "deploy",
-    status: "status",
     fix: "fix"
 }

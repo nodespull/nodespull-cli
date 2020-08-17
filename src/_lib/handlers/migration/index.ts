@@ -13,6 +13,10 @@ if(!process.argv[4]){
     process.exit(1)
 }
 switch(process.argv[3]){
+    case ("help"):{
+        console.log("pull: help -- migrates database to|from staged schema")
+        break
+    }
     case("upload"):{
         cmd("node",["src/server.js", "migrate","up", process.argv[4], prodFlag])
         break

@@ -18,6 +18,9 @@ switch(target){
     case("app"):
         cmd("node",["src/server.js","cli"])
         break
+    case("help"):
+        console.log(`pull: help -- interactive cli \n${new Log("options")}: docker`)
+        break
     case("docker"):
         require("./docker")
         break;

@@ -76,23 +76,24 @@ export async function getCmd(input:string, loop:boolean, options?:CliCmdOptions_
 
 function help(){
     console.log(`
-===== HELP: Docker ext =====
+Available commands:
+___________________________________________________________________
+Commands       Arguments                Descriptions                
+___________________________________________________________________
+create|remove   mysql               spawn|destroy msql server
+                adminer             lunch|remove relational db ui
+ps                                  show running docker containers
+docker                              see 'docker --help'
+___________________________________________________________________
 
-${new Log("create|c").FgGreen().getValue()}
-c mysql     --name <serverName> 
-            --pass <password> 
-            --port <serverPort>    spawn msql server: user '${new Log("root").FgGreen().getValue()}', db '${new Log("default").FgGreen().getValue()}'
-c adminer    <port>                launch db ui
+${new Log("db server").FgGreen().getValue()} usage
+c  mysql --name <name> --pass <password> --port <port>
+rm mysql <name>
+system values are user:'root', db:'default'
 
-${new Log("remove|rm").FgGreen().getValue()}
-rm mysql    <serverName>   delete msql server completely
-rm adminer             close db ui
-
-${new Log("ps").FgGreen().getValue()}
-show all running containers
-
-${new Log("docker").FgGreen().getValue()}
-see 'docker --help'
+${new Log("adminer").FgGreen().getValue()} usage
+c  mysql --name <name> --pass <password> --port <port>
+rm adminer
 
 `);
     main();
