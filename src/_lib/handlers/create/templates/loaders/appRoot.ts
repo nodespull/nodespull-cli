@@ -15,7 +15,8 @@ export default function getAppRootTemplate(projectName:string):string{
     
     /* server configurations */
     np.config.server({
-        port: 3000
+        port: 3000,
+        useSwagger: false
     })
     
     

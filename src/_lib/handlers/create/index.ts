@@ -5,36 +5,32 @@ import getPackageJsonTemplate from "./templates/loaders/package.json"
 import getSysEnvTemplate from "./templates/loaders/sysEnv"
 
 import { cpus } from "os"
+import { Log } from "../../sys/log"
 
 let projectName:string|undefined
-if(!process.argv[3]){
-    console.log("Error: Project name not provided")
-    process.exit(1)
-}
+if(!process.argv[3]) new Log("Project name not provided").throwError().exit()
 else projectName = process.argv[3]
 
-if(fs.existsSync("./"+projectName)){
-    console.log(`Error: folder '${projectName}' already exists`)
-    process.exit(1)
-}
+if(fs.existsSync("./"+projectName) && !["--force","-f"].includes(process.argv[4])) new Log(`folder '${projectName}' already exists`).throwError().exit()
 
-cmd("mkdir",[projectName])
+
+cmd("mkdir",[projectName!])
 cmd("touch",[projectName+"/package.json"])
-fs.writeFileSync("./"+projectName+"/package.json",getPackageJsonTemplate(projectName))
+fs.writeFileSync("./"+projectName+"/package.json",getPackageJsonTemplate(projectName!))
 // cmd("git", ["init", projectName])
 
 //create app root file
 cmd("mkdir",["-p", projectName+"/src"])
 cmd("touch",[projectName+"/src/server.js"])
-fs.writeFileSync( projectName+"/src/server.js", getAppRootfileTempalte(projectName))
+fs.writeFileSync( projectName+"/src/server.js", getAppRootfileTempalte(projectName!))
 // cmd("cp", [__dirname+"/templates/template.appRoot.js", projectName+"/src/server.js" ])
 
 //install dependencies
-cmd("npm",["install", "--silent", "--prefix", projectName, "/Users/isaac/Desktop/Projects/nodespull tools/nodespull.js"])
-console.log("(setup for npm 'nodemon', 'mocha', and 'heroku' require admin level access)")
-cmd("sudo",["npm","install","-g", "--force", "--silent" , "nodemon"], false)
-cmd("sudo",["npm","install","-g", "--force", "--silent" , "mocha"], false)
-cmd("sudo",["npm","install","-g", "--force", "--silent", "heroku"], false)
+cmd("npm",["install", "--silent", "--prefix", projectName!, "/Users/isaac/Desktop/Projects/nodespull tools/nodespull.js"], false)
+console.log("npm ['nodemon', 'heroku', 'mocha', 'mysql'] require admin permission")
+cmd("sudo",["npm","install","-g", "--force", "--silent" , "nodemon"])
+cmd("sudo",["npm","install","-g", "--force", "--silent" , "heroku"])
+cmd("sudo",["npm","install","-g", "--force", "--silent", "mocha"])
 //cmd("curl", ["https://cli-assets.heroku.com/install.sh", "|", "sh"])
 
 
@@ -43,9 +39,10 @@ try {
     process.chdir(process.cwd()+'/'+projectName);
     builde2eDir()
     buildConfigDir()
-    cmd("node", ["./src/server.js", "init", projectName])
+    cmd("node", ["./src/server.js", "init", projectName!])
     console.log("Fixing vulnerabilities..")
-    cmd("npm",["audit","--silent" ,"fix"])
+    cmd("npm",["audit","--silent" ,"fix"], false)
+    console.log("100% - complete.")
 }
 catch (err) {
     console.log('chdir: ' + err);
@@ -72,8 +69,8 @@ function builde2eDir(){
 
 function buildConfigDir(){
     cmd("mkdir", ["-p", "config"])
-    cmd("touch",["./config/sys.local.env"])
-    cmd("touch",["./config/sys.prod.env"])
-    fs.writeFileSync("./config/sys.local.env",getSysEnvTemplate())
-    fs.writeFileSync("./config/sys.prod.env",getSysEnvTemplate("--prod"))
+    cmd("touch",["./config/sys.local.env.js"])
+    cmd("touch",["./config/sys.prod.env.js"])
+    fs.writeFileSync("./config/sys.local.env.js",getSysEnvTemplate())
+    fs.writeFileSync("./config/sys.prod.env.js",getSysEnvTemplate("--prod"))
 }

@@ -15,5 +15,5 @@ export const sys_commands: {[index:string]: string} = {
     migration: "migration",
     deploy: "deploy",
     status: "status",
-    update: "update"
+    fix: "fix"
 }
