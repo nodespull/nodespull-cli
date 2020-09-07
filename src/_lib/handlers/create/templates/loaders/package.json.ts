@@ -4,8 +4,8 @@ export default function getpackageJson(projectName:string){
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "pull serve",
-        "test": "pull test"
+        "start": "node src/server.js serve",
+        "test": "node src/server.js test"
     },
     "keywords": [],
     "author": "",

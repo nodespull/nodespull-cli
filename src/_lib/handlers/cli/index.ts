@@ -27,5 +27,3 @@ switch(target){
     default:
         new Log("interface-target '"+target+"' not supported").throwError().exit()
 }
-
-

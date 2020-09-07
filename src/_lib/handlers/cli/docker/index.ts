@@ -78,21 +78,21 @@ function help(){
     console.log(`
 Available commands:
 ___________________________________________________________________
-Commands       Arguments                Descriptions                
+Commands        Arguments                Descriptions                
 ___________________________________________________________________
-create|remove   mysql               spawn|destroy msql server
-                adminer             lunch|remove relational db ui
-ps                                  show running docker containers
-docker                              see 'docker --help'
+create|remove   - mysql               Spawn|destroy msql server
+                - adminer             Lunch|remove relational db ui
+
+ps|ls                                 Show running docker containers
+docker                                Accesses the docker cli
 ___________________________________________________________________
 
 ${new Log("db server").FgGreen().getValue()} usage
 c  mysql --name <name> --pass <password> --port <port>
 rm mysql <name>
-system values are user:'root', db:'default'
 
 ${new Log("adminer").FgGreen().getValue()} usage
-c  mysql --name <name> --pass <password> --port <port>
+c  adminer --name <name>
 rm adminer
 
 `);

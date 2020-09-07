@@ -10,11 +10,12 @@ export class MysqlHandler{
      * @param args [name:string, pass:string, port:string]
      */
     static create(args:string[]){
-        let defaultDatabase = "default"
+        // let databaseFlagInd = args.indexOf("--db"); if(databaseFlagInd < 0 || databaseFlagInd+1 > args.length-1) throw error.wrongUsage
         let serverFlagInd = args.indexOf("--name"); if(serverFlagInd < 0 || serverFlagInd+1 > args.length-1) throw error.wrongUsage
         let passFlagInd = args.indexOf("--pass"); if(passFlagInd < 0 || passFlagInd+1 > args.length-1) throw error.wrongUsage
         let portFlagInd = args.indexOf("--port"); if(portFlagInd < 0 || portFlagInd+1 > args.length-1) throw error.wrongUsage
         let serverName = args[serverFlagInd+1]
+        // let database = args[databaseFlagInd+1]
         let password = args[passFlagInd+1]
         let port = args[portFlagInd+1]
         if(!StringParser.isExtendedAlphaNum_DashAllowed(serverName)) throw error.falseNameFormat
@@ -29,7 +30,7 @@ export class MysqlHandler{
             "-p", port+":3306",
             "--network=nodespull",
             "-e", "MYSQL_ROOT_PASSWORD="+password,
-            "-e", "MYSQL_DATABASE="+defaultDatabase,
+            "-e", "MYSQL_DATABASE="+serverName,
             "--name", serverName,
             "mysql"
         ])
