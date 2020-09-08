@@ -2,6 +2,12 @@
 import cmd from "../../sys/etc/cmd"
 import { Log } from "../../sys/log"
 
+
+if(process.argv[3] == "--help"){
+    console.log(`pull: help -- opens the nodespull console`)
+    process.exit()
+}
+
 let target:string|undefined
 if(!process.argv[3]) target = "app"
 else target = process.argv[3]

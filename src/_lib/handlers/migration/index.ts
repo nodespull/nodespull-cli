@@ -1,6 +1,11 @@
 const readline = require('readline');
 import cmd from "../../sys/etc/cmd"
 
+if(process.argv[3] == "--help"){
+    console.log("pull: help -- migrates database to|from staged schema")
+    process.exit()
+}
+
 
 let readOnly = (process.argv.includes("--readonly") || process.argv.includes("-r"))?"--readonly":""
 let freeze = (process.argv.includes("--freeze") || process.argv.includes("-f"))?"--freeze":""
@@ -39,10 +44,6 @@ else {
 
 function router(){
     switch(process.argv[3]){
-        case ("help"):{
-            console.log("pull: help -- migrates database to|from staged schema")
-            break
-        }
         case("up"):{
             cmd("node",["src/server.js", "migrate","up", linkName, readOnly, freeze])
             break

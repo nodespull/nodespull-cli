@@ -25,7 +25,7 @@ np.ready()
 
 
 /* expose nodespull core library */
-exports.np = np
+module.exports = np
        
 `
 }

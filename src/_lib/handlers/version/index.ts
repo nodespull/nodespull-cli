@@ -1,5 +1,5 @@
 
-if(process.argv[3] == "help"){
+if(process.argv[3] == "--help"){
     console.log("pull: help -- shows pull version")
     process.exit()
 }

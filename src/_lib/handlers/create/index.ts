@@ -7,14 +7,17 @@ import getSysEnvTemplate from "./templates/loaders/sysEnv"
 import { cpus } from "os"
 import { Log } from "../../sys/log"
 
+
+if(process.argv[3] == "--help"){
+    console.log(`pull: help -- creates a new nodespull project`)
+    process.exit()
+}
+
+
 let projectName:string|undefined
 if(!process.argv[3]) new Log("Project name not provided").throwError().exit()
 else projectName = process.argv[3]
 
-if(projectName == "help") {
-    console.log(`pull: help -- creates a new nodespull project\n- ${new Log("name")}: name of the project`)
-    process.exit()
-}
 
 if(fs.existsSync("./"+projectName) && !["--force","-f"].includes(process.argv[4])) new Log(`folder '${projectName}' already exists`).throwError().exit()
 
