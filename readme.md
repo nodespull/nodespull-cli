@@ -8,4 +8,4 @@ Review the Nodespull docs at [Nodespull.org](https://nodespull.org).
 
 ## Timeline
 
-Nodespull is a relatively new project. If you wish to help, please visit [our contribution page](https://nodespull.org/donate).
+Nodespull is a relatively new project. If you wish to help, please visit [our contribution page](https://nodespull.org/donate). 
