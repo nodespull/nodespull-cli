@@ -10,7 +10,7 @@ parse();
 
 
 function parse(){
-    let outOfDirCommands = ["create", "v","version"]
+    let outOfDirCommands = ["create","new", "v","version", "help"]
 
     if(!Object.keys(sys_commands).includes(rootCmd)){
         console.log(err.cmd.unknown)
