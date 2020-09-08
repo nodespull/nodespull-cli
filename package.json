@@ -8,20 +8,11 @@
   "scripts": {},
   "keywords": [
     "nodes.js",
-    "route",
-    "model",
     "database",
     "authentication",
     "server",
-    "express",
-    "ORM",
-    "jwt",
-    "hash",
     "docs",
-    "swagger",
-    "test",
-    "mocha",
-    "chai"
+    "test"
   ],
   "author": "Isaac Kabuika",
   "license": "MIT",
