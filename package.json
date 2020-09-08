@@ -1,9 +1,13 @@
 {
   "name": "@nodespull/cli",
-  "version": "0.0.7",
-  "description": "nodespull cli",
+  "version": "0.0.3",
+  "description": "CLI for the Nodespull Javascript Server Framework",
   "bin": {
     "pull": "./_bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodespull/nodespull-cli"
   },
   "scripts": {},
   "keywords": [

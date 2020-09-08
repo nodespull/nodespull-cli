@@ -4,8 +4,8 @@ Nodespull is an open source Javascript-based framework for creating microservice
 
 ## Documentation
 
-Review the Nodespull docs at [Nodespull.org](https://nodespull.org).
+Review the Nodespull docs at [Nodespull.org](https://js.nodespull.org).
 
 ## Timeline
 
-Nodespull is a relatively new project. If you wish to help, please visit [our contribution page](https://nodespull.org/donate). 
+Nodespull is a relatively new project. If you wish to help, please visit [our contribution page](https://js.nodespull.org/donate). 
