@@ -2,7 +2,8 @@ const readline = require('readline');
 import cmd from "../../sys/etc/cmd"
 
 
-let readOnly = process.argv.includes("--readonly")?"--readonly":""
+let readOnly = (process.argv.includes("--readonly") || process.argv.includes("-r"))?"--readonly":""
+let freeze = (process.argv.includes("--freeze") || process.argv.includes("-f"))?"--freeze":""
 
 if(!process.argv[3]){
     console.log("pull: migrate argument not provided")
@@ -20,7 +21,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-if(readOnly != "--readonly") rl.question("\n\x1b[33mThis action might modify your database\x1b[0m\nenter 'alter' to continue. > ", (answer:any) => {
+if(readOnly != "--readonly") rl.question(`\n\x1b[33mThis action might modify your database ${freeze=="--freeze"?"- with frozen model version":""}\x1b[0m\nenter 'alter' to continue. > `, (answer:any) => {
     if(answer.toLowerCase() != 'alter'){
         console.log("migration aborted..")
         process.exit(0)
@@ -29,6 +30,7 @@ if(readOnly != "--readonly") rl.question("\n\x1b[33mThis action might modify you
     rl.close();
 });
 else {
+    if(freeze=="--freeze")console.log("\nfreezing version..")
     router()
     rl.close();
 }
@@ -42,11 +44,11 @@ function router(){
             break
         }
         case("up"):{
-            cmd("node",["src/server.js", "migrate","up", linkName, readOnly])
+            cmd("node",["src/server.js", "migrate","up", linkName, readOnly, freeze])
             break
         }
         case("down"):{
-            cmd("node", ["src/server.js", "migrate","down", linkName, readOnly])
+            cmd("node", ["src/server.js", "migrate","down", linkName, readOnly, freeze])
             break
         }
         default:

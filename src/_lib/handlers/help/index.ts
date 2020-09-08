@@ -21,7 +21,9 @@ ${new Log("serve with Flag").FgGreen().getValue()} details
 --prod|--dev|<custom> : trailing flag is used to set environment
 
 ${new Log("migrate with Flag").FgGreen().getValue()} details
---readonly: does not alter the database, updates models only
+--readonly |-r : does not alter the database, updates models only
+--freeze   |-f : does not update the model version
+Example: migrate up myConn.link -r -f
 
 ${new Log("deep help").FgGreen().getValue()} info
 use 'help' as argument to learn more about any command
