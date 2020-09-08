@@ -6,6 +6,6 @@ if(process.argv[3] == "help"){
     process.exit()
 }
 
-cmd("nodemon",["--quiet", "src/server.js", "serve"])
+let flags = process.argv.filter(arg=>{if(arg.slice(0,2)=="--")return arg})
 
-
+cmd("nodemon",["--quiet", "src/server.js", "serve", ...flags])
